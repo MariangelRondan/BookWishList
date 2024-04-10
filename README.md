@@ -25,7 +25,7 @@ Este proyecto utiliza las siguientes tecnologías:
 2. Instala las dependencias del cliente y del servidor:
 
    ```bash
-   cd client
+   cd client/bookWishList
    npm install
    cd ../server
    npm install
