@@ -1,10 +1,22 @@
-<h1>Holi</h1>
+<app-navbar></app-navbar>
 
 
-<ul>
-  <li *ngFor="let book of books">
-    <b>{{book.name}}</b>
-    <p>{{book.author}}</p>
-  </li>
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre del Libro</th>
+            <th>Autor</th>
+            <th>Leído</th>
+            <th>Marcar como Leído</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{ book.name }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.read ? 'Sí' : 'No' }}</td>
+            <td><input type="checkbox" class="read-checkbox" ></td>
+        </tr>
+    </tbody>
+</table>
 

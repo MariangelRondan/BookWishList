@@ -8,6 +8,13 @@ export interface Book {
 
 
 export interface User{
+    name: string;
+    email: string;
+    password: string;
+    img?: string;
+}
+
+export interface LoginUser{
     email: string;
     password: string;
 }

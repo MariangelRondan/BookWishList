@@ -1,5 +1,5 @@
 import mongoose,{connect} from 'mongoose';
-import {CONNECTION_STRING} from '../config';
+import { envs } from '../config';
 
 
 interface Options{
@@ -12,5 +12,5 @@ interface Options{
 export const connectDB =() =>{
     mongoose.set('strictQuery', true);
 
-    connect(CONNECTION_STRING as string)
+    connect(envs.CONNECTION_STRING as string)
 }

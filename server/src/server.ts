@@ -1,17 +1,11 @@
 import express, {Router, Express} from 'express';
-import { MongoClient, MongoClientOptions } from 'mongodb';
 import cors from 'cors';
-import multer from 'multer';
-import {PORT} from './config';
 import {bookRouter} from './routes/book.routes'
 import {connectDB} from './database'
 import { userRouter } from './routes';
+import { envs } from './config';
 
 
-interface Options{
-    port: number;
-    routes: Router;
-}
 
 
 export class Server{
@@ -32,16 +26,10 @@ export class Server{
         }
 
     config(){
-        this.app.set('port', PORT || 3000)
+        this.app.set('port', envs.PORT || 3000)
     }
 
     routes(){
-        this.app.get('/', (req, res)=> {
-            res.json({
-                name: 'API REST BOOK WISH LIST'
-            })
-        })
-
         this.app.use('/api/book', bookRouter)
         this.app.use('/auth', userRouter)
     }
@@ -58,7 +46,7 @@ export class Server{
 
     listen(){
         this.app.listen(this.app.get('port'), () => {
-            console.log('server running on PORT', this.app.get('port'))
+            console.log('server running on PORT', envs.PORT)
         })
     }
 }
