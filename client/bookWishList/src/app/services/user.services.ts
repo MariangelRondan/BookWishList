@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { LoginUser, User } from "../../interfaces";
+import { LoginUser, User,LoginResponse } from "../../interfaces";
 import { Observable } from "rxjs";
 
 
@@ -29,8 +29,8 @@ export class UserService{
     }
 
 
-    login(user: LoginUser): Observable<string>{
-        return this.http.post<string>(`${this.APIUrl}/login`, user);
+    login(user: LoginUser): Observable<LoginResponse>{
+        return this.http.post<LoginResponse>(`${this.APIUrl}/login`, user);
 
     }
 

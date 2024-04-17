@@ -1,10 +1,13 @@
 export interface Book {
-    id: string,
+    _id: string,
     name: string;
     author: string;
-    read: boolean;
+    status: 'read' | 'not_read';
 }
 
+export interface LoginResponse {
+    token: string;
+  }
 
 
 export interface User{

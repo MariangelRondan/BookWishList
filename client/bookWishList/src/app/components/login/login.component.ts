@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LoginUser } from '../../../interfaces';
 import { UserService } from '../../services/user.services';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -34,11 +35,18 @@ const user: LoginUser = {
 
 
 this._userService.login(user).subscribe({
-  next(data) {
-    console.log(data)
-    localStorage.setItem('token', data)
+  next: (data)=> {
     this.router.navigate(['/home'])
+    console.log(data)
+    localStorage.setItem('token', data.token)
   },
+  error: (e: HttpErrorResponse) => {
+    if (e.error && e.error.error) {
+      Swal.fire('Error', e.error.error, 'error'); // Muestra el mensaje de error con SweetAlert
+    } else {
+      Swal.fire('Error', 'Error desconocido', 'error'); // Mensaje de error genérico
+    }
+  }
 })
 
 

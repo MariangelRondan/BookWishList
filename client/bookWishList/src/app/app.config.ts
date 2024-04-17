@@ -6,6 +6,8 @@ import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
-    provideHttpClient()  //para que funcionen las peticioones http. me daba error.
+    provideHttpClient(),  //para que funcionen las peticioones http. me daba error.
+    
+        
   ]
 };

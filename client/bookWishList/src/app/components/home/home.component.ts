@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule} from '@angular/common/http';
+import {  HttpClientModule} from '@angular/common/http';
 import { CommonModule,NgFor } from '@angular/common';
 
 import  {Book}  from '../../../interfaces';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { BookService } from '../../services/book.service';
 
 
 
@@ -20,16 +21,23 @@ export class HomeComponent implements OnInit{
   readonly APIUrl='http://localhost:3001/api/book'
   books: Book[] = []
 
-  constructor(private http:HttpClient){
+  constructor(private _bookServices: BookService){
     }
 
     ngOnInit(){
-      this.refreshBooks()
+      this.getBooks()
     }
 
-    refreshBooks(){
-      this.http.get<Book[]>(this.APIUrl).subscribe(data => {
-        this.books = data
-      })
+    getBooks(){
+     this._bookServices.getBooks().subscribe(data => {
+    this.books = data
+     })
+    }
+
+
+    toggleRead(book: Book) {
+      const newStatus = book.status === 'read' ? 'not_read' : 'read'; 
+      this._bookServices.updateBookReadStatus(book._id, newStatus).subscribe(() => {
+        window.location.reload(); });
     }
 }

@@ -1,13 +1,26 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { MatDialog   } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+
+constructor(
+  private router: Router,
+  public dialog: MatDialog
+){}
+
+logOut(){
+localStorage.removeItem('token');
+this.router.navigate(['/login'])
+return
+}
+
 
 }

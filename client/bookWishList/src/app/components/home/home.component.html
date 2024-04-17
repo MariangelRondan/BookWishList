@@ -11,12 +11,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let book of books">
+        <!-- <tr *ngFor="let book of books">
             <td>{{ book.name }}</td>
             <td>{{ book.author }}</td>
-            <td>{{ book.read ? 'Sí' : 'No' }}</td>
-            <td><input type="checkbox" class="read-checkbox" ></td>
-        </tr>
+            <td>{{ book.status  }}</td>
+            <td><input type="checkbox" class="read-checkbox" (change)="toggleRead(book)" [checked]="book.status === 'read'"></td>       
+         </tr> -->
+         @for (book of books; track book._id) {
+            <tr >
+                <td>{{ book.name }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.status  }}</td>
+                <td><input type="checkbox" class="read-checkbox" (change)="toggleRead(book)" [checked]="book.status === 'read'"></td>       
+             </tr> 
+
+         }
     </tbody>
 </table>
 

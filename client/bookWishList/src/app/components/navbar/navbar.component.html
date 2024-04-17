@@ -1,8 +1,10 @@
 <nav>
     <ul>
-        <li><a routerLink="">Profile</a></li>
-        <li><a href="/login">Logout</a></li>
-        <li><a routerLink="/home">Home</a></li>
+        <!-- <li><a routerLink="">Mi perfil</a></li> -->
+        <li><a href="/home">Inicio</a></li>
+        <li><button  routerLink="/bookForm"  >Agregar libro</button></li>
+
+        <li><button (click)="logOut()">Cerrar sesión</button></li>
     </ul>
 </nav>
 

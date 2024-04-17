@@ -2,7 +2,6 @@ import { BcryptAdapter, Jwt } from "../config";
 import { UserModel } from "../database"
 import { LoginUserDto, RegisterUserDto } from "../dtos";
 import { CustomError } from "../errors/custom.error";
-import {User} from '../interfaces/interface'
 
 
 type SignToken = (payload: Object, duration?: string) => Promise<string | null>;
