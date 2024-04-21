@@ -1,31 +1,36 @@
 <app-navbar></app-navbar>
 
+<div class=" min-h-screen min-w-screen max-w-screen-2xl bg-[#f0eae7] container flex flex-col content-center  ">
 
-<table>
+
+<table class="divide-y divide-blue-200 table-fixed mt-8">
     <thead>
-        <tr>
+        <tr >
             <th>Nombre del Libro</th>
             <th>Autor</th>
-            <th>Leído</th>
+            <th>Descripción</th>
             <th>Marcar como Leído</th>
+            <th>Eliminar</th>
         </tr>
     </thead>
-    <tbody>
-        <!-- <tr *ngFor="let book of books">
+    <tbody class="text-center divide-y divide-blue-200 ">
+        <!-- ASI SE HACE EN VERSIONES ANTERIORES: <tr *ngFor="let book of books">
             <td>{{ book.name }}</td>
             <td>{{ book.author }}</td>
             <td>{{ book.status  }}</td>
             <td><input type="checkbox" class="read-checkbox" (change)="toggleRead(book)" [checked]="book.status === 'read'"></td>       
          </tr> -->
          @for (book of books; track book._id) {
-            <tr >
-                <td>{{ book.name }}</td>
-                <td>{{ book.author }}</td>
-                <td>{{ book.status  }}</td>
-                <td><input type="checkbox" class="read-checkbox" (change)="toggleRead(book)" [checked]="book.status === 'read'"></td>       
-             </tr> 
-
+            <tr class="" [ngStyle]="{'background-color': book.status === 'read' ? '#258d19' : '', 'color':book.status === 'read' ? 'white' : ''}">
+                <td class="my-8  ">{{ book.name }}</td>
+                <td class="my-8   divide-y divide-dashed ">{{ book.author }}</td>
+                <td class="my-8   divide-y divide-dashed ">{{ book.description }}</td>
+                <td class="my-8"><input type="checkbox" class="read-checkbox" (change)="toggleRead(book)" [checked]="book.status === 'read'"></td>       
+                <td class=""><img src="../../../assets/boton-x.png" alt="delete" class="w-6 m-4 hover:cursor-pointer" (click)="deleteBook(book._id)"  (keyup.enter)="deleteBook(book._id)" tabindex="0"> </td>
+            </tr> 
+            
          }
     </tbody>
 </table>
 
+</div>

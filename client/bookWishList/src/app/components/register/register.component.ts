@@ -28,7 +28,9 @@ private router: Router){}
  
 
 ngOnInit(): void {
-  console.log('puto')
+  if (this._userService.isLoggedIn()) {
+    this.router.navigate(['/home']);
+  }
 }
 
 newUser(){

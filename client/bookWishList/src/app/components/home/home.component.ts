@@ -29,9 +29,19 @@ export class HomeComponent implements OnInit{
     }
 
     getBooks(){
-     this._bookServices.getBooks().subscribe(data => {
+      const userEmail = localStorage.getItem('User')
+      console.log(userEmail)
+     this._bookServices.getBooks(userEmail).subscribe(data => {
     this.books = data
+    console.log(data)
      })
+    }
+
+    deleteBook(id: string){
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+this._bookServices.deleteBook(id).subscribe(data => {
+  window.location.reload()
+})
     }
 
 

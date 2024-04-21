@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -13,14 +13,20 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 email: string = '';
 password: string = '';
 
 constructor(
 private _userService: UserService,
-private router: Router
+private router: Router,
 ){}
+
+ngOnInit(){
+  if (this._userService.isLoggedIn()) {
+    this.router.navigate(['/home']);
+  }
+}
 
 login(){
   if(this.email === '' || this. password===''){
@@ -39,6 +45,8 @@ this._userService.login(user).subscribe({
     this.router.navigate(['/home'])
     console.log(data)
     localStorage.setItem('token', data.token)
+    localStorage.setItem('User', user.email)
+
   },
   error: (e: HttpErrorResponse) => {
     if (e.error && e.error.error) {

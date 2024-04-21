@@ -1,18 +1,19 @@
+<app-navbar></app-navbar>
 
-<div>
-<h1>Agrega un nuevo libro a tu lista de deseos </h1>
+<div class=" min-h-screen min-w-screen max-w-screen-2xl  bg-[#f0eae7] ">
 
-<form>
-    <label for="title">Titulo</label>
-    <input name="title" type="text"  />
+<div class="flex flex-col items-center  ">
+<h1 class="font-bold text-xl mt-12 mb-7">Agrega un nuevo libro a tu lista de deseos </h1>
 
-    <label for="author">Autor</label>
-    <input name="author" type="text"  />
+<form class=" flex flex-col md:w-80 md:content-center">
+    <input [(ngModel)]="name" name="title" placeholder="Título" type="text" class="mb-8 border-2 rounded-md border-[#1fa2a9] " />
 
-    <label for="description">Descripción</label>
-    <input name="description" type="text"  />
+    <input [(ngModel)]="author" name="author" placeholder="Autor" type="text"  class="mb-8 border-2 rounded-md border-[#1fa2a9] "/>
 
-<button>Agregar</button>
+    <input [(ngModel)]="description"  name="description" placeholder="Descripción (Opcional)" type="text" class="mb-8 border-2 rounded-md border-[#1fa2a9] " />
+
+<button class="bg-[#1fa2a9] rounded-md font-semibold text-gray-100 "(click)="postBook()" >Agregar</button>
 </form>
-<button routerLink="/home" >Volver</button>
+<button routerLink="/home" class="m-8 font-semibold text-gray-100 bg-[#1fa2a9] p-2 rounded-md"  >Volver</button>
+</div>
 </div>

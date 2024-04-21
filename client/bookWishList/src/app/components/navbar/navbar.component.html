@@ -1,10 +1,11 @@
-<nav>
-    <ul>
-        <!-- <li><a routerLink="">Mi perfil</a></li> -->
-        <li><a href="/home">Inicio</a></li>
-        <li><button  routerLink="/bookForm"  >Agregar libro</button></li>
+<nav class="bg-[#1fa2a9] ">
 
-        <li><button (click)="logOut()">Cerrar sesión</button></li>
+    <ul class="flex flex-row text-gray-100 font-semibold text-lg" >
+        <!-- <li><a routerLink="">Mi perfil</a></li> -->
+        <li class="m-5 hover:cursor-pointer"><a href="/home">Inicio</a></li>
+        <li class="m-5 hover:cursor-pointer"><button  routerLink="/bookForm"  >Agregar libro</button></li>
+
+        <li class="m-5 hover:cursor-pointer"><button (click)="logOut()">Cerrar sesión</button></li>
     </ul>
 </nav>
 

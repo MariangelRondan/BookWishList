@@ -12,6 +12,7 @@ export const formatUser = (user: any) => {
         name: user.name,
         email: user.email,
         role: user.role
+        
     };
 }
 
@@ -50,9 +51,9 @@ export const userService = {
     },
 
     async loginUser(loginUserDto: LoginUserDto) {
-        const { email, password } = loginUserDto; // Obtén email y password del DTO de login
+        const { email, password } = loginUserDto; 
 
-        // Busca al usuario en la base de datos
+        
         const user = await UserModel.findOne({ email });
 
         if (!user) {
@@ -64,7 +65,7 @@ export const userService = {
         if (!passwordsMatch) {
             throw CustomError.badRequest('Incorrect Password');
         }
-
+        
         const token = await Jwt.generateToken({ email: user.email });
 
         return { token, user };

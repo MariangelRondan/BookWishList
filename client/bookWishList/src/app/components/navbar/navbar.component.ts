@@ -18,6 +18,8 @@ constructor(
 
 logOut(){
 localStorage.removeItem('token');
+localStorage.removeItem('User');
+
 this.router.navigate(['/login'])
 return
 }

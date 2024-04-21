@@ -15,25 +15,25 @@
   <p  class="text-center m-3 max-w-full-sm text-lg">Ya tenés cuenta?  <a class="text-[#1fa2a9]" routerLink="/login">Logueate!</a></p>
 
     <form class="flex flex-col w items-center ">
-      <div class=" my-8 ">
+      <div class=" my-8 focus:border-solid focus:border-2 focus:border-indigo-600">
         <img src="../../../assets/usuario.png" alt="" class="w-8 float-left bg-[#eddfd0]/20 rounded-l-xl h-10">
-        <input type="text"  [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="Nombre..."  class="bg-[#eddfd0]/20 rounded-r-xl h-10">
+        <input type="text"  [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="Nombre..."  class="bg-[#eddfd0]/20 rounded-r-xl h-10 ml-2 ">
       </div>
 
    <div class=" my-8 ">     
     <img src="../../../assets/email.png" alt="" class="w-8 float-left bg-[#eddfd0]/20 rounded-l-xl h-10">
 
-     <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email" placeholder="Email..."  class="bg-[#eddfd0]/20 rounded-r-xl h-10" >
+     <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email" placeholder="Email..."  class="bg-[#eddfd0]/20 rounded-r-xl h-10 ml-2" >
       </div>
 
    <div class=" my-8 ">    
-    <img src="../../../assets/candado.png" alt="" class="w-8 float-left bg-[#eddfd0]/20 rounded-l-xl h-10">
+    <img src="../../../assets/candado.png" alt="" class="w-8 float-left bg-[#eddfd0]/20 rounded-l-xl h-10 ">
     
-    <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" placeholder="Contraseña..."   class="bg-[#eddfd0]/20 rounded-r-xl h-10" >
+    <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" placeholder="Contraseña..."   class="bg-[#eddfd0]/20 rounded-r-xl h-10 ml-2" >
       </div>
 
    <div class=" my-8 ">        
-    <input   [(ngModel)]="img" [ngModelOptions]="{standalone: true}" type="file"    class="bg-[#eddfd0]/20 rounded-r-xl h-10" >
+    <input   [(ngModel)]="img" [ngModelOptions]="{standalone: true}" type="file"    class="bg-[#eddfd0]/20 rounded-r-xl h-10 ml-2" >
       </div>
       <button type="button" (click)="newUser()" class=" rounded-2xl  w-52 mb-8 bg-[#1fa2a9] p-3 text-slate-200">Aceptar</button>
     </form>

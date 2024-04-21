@@ -2,11 +2,20 @@ import { BookModel } from "../database"
 
 
 export const bookService = {
-     async getAllBooks(){
-    return await BookModel.find()
+     async getAllBooks(userEmail : string){
+       
+            
+      const books = await BookModel.find({owner: userEmail})
+
+
+      console.log(books)
+    return books;
 },
 
-    async postBook(entity: object){
+    async postBook(entity: any, userEmail: string){
+
+    entity.owner = userEmail;
+
     return await BookModel.create(entity)
     },
 
@@ -18,6 +27,10 @@ export const bookService = {
 
     async deleteBook(id: string){
         return await BookModel.findByIdAndDelete(id)
+    },
+
+    async deleteAllBooks(){
+        return await BookModel.deleteMany({});
     }
  
 }

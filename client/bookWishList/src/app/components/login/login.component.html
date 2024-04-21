@@ -16,12 +16,12 @@
     <form class="flex flex-col w items-center">
       <div class=" my-8 " >
         <img src="../../../assets/usuario.png" alt="" class="w-8 float-left bg-[#eddfd0]/20 rounded-l-xl h-10">
-        <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="bg-[#eddfd0]/20 rounded-r-xl h-10" placeholder="Email">
+        <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="bg-[#eddfd0]/20 rounded-r-xl h-10 ml-2" placeholder="Email">
       </div>
       <div class=" mb-8">
         <img src="../../../assets/candado.png" alt="" class="w-8 float-left bg-[#eddfd0]/20 rounded-l-xl h-10">
 
-        <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="bg-[#eddfd0]/20  rounded-r-xl h-10" placeholder="Password">
+        <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="bg-[#eddfd0]/20  rounded-r-xl h-10 ml-2"  placeholder="Password">
       </div>
       <button type="submit" (click)="login()"  class=" rounded-2xl  w-52 mb-8 bg-[#1fa2a9] p-3 text-slate-200">Enviar</button>
     </form>
