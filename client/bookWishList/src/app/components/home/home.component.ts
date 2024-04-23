@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  HttpClientModule} from '@angular/common/http';
 import { CommonModule,NgFor } from '@angular/common';
-
 import  {Book}  from '../../../interfaces';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { BookService } from '../../services/book.service';
@@ -18,36 +17,43 @@ import { BookService } from '../../services/book.service';
 })
 
 export class HomeComponent implements OnInit{
-  readonly APIUrl='http://localhost:3001/api/book'
+  
   books: Book[] = []
+
+
 
   constructor(private _bookServices: BookService){
     }
 
     ngOnInit(){
-      this.getBooks()
+     
+    this.getBooks();
+        
     }
 
     getBooks(){
-      const userEmail = localStorage.getItem('User')
-      console.log(userEmail)
-     this._bookServices.getBooks(userEmail).subscribe(data => {
-    this.books = data
-    console.log(data)
+    const userEmail = localStorage.getItem('User')
+     
+    this._bookServices.getBooks(userEmail).subscribe(data => {
+    this.books = data;
+   
      })
     }
 
     deleteBook(id: string){
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 this._bookServices.deleteBook(id).subscribe(data => {
+  
   window.location.reload()
 })
-    }
+  }
 
 
     toggleRead(book: Book) {
       const newStatus = book.status === 'read' ? 'not_read' : 'read'; 
       this._bookServices.updateBookReadStatus(book._id, newStatus).subscribe(() => {
-        window.location.reload(); });
+      window.location.reload(); 
+    
+    });
     }
 }

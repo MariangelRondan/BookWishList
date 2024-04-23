@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { LoginUser, User,LoginResponse } from "../../interfaces";
 import { Observable } from "rxjs";
+import { environments } from "../../environments/environments";
 
 
 
@@ -18,7 +19,8 @@ export class UserService{
 
     constructor(
      private http: HttpClient){
-        this.APIUrl= 'http://localhost:3001/auth';
+        this.APIUrl= `${environments.BACKURL}/auth`;
+        
 
         }
 

@@ -14,7 +14,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrl: './book-form.component.css'
 })
 export class BookFormComponent implements OnInit {
-  readonly APIUrl='http://localhost:3001/api/book'
+  
   name: string = '';
   author: string = '';
   description: string = '';
@@ -39,9 +39,12 @@ if(!userEmail){
   }
   this._bookServices.newBook(book, userEmail).subscribe({
     next: (v) =>{
+      this.name = '';
+      this.author = '';
+      this.description = ''
       console.log(v)
       Swal.fire('Ha sido añadido', 'Libro agregado a tu lista de deseos', 'success')
-   
+    
     },
     error: (e: HttpErrorResponse) => {
       if (e.error && e.error.error) {

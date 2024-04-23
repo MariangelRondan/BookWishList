@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../../interfaces';
+import { environments } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class BookService {
 
   constructor(
    private http: HttpClient){
-      this.APIUrl= 'http://localhost:3001';
+      this.APIUrl= environments.BACKURL;
 
       }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
