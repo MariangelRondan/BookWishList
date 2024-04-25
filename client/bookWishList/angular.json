@@ -13,8 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/book-wish-list/",
-            "index": "browser/index.html",
+            "outputPath": "dist/book-wish-list/browser",
+            "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -34,6 +34,7 @@
               "fileReplacements": [{
                 "replace": "src/environments/environments.ts",
                 "with": "src/environments/environments.prod.ts"
+
               }],
               "budgets": [
                 {
