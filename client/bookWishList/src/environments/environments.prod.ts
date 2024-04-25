@@ -1,3 +1,3 @@
 export const environments = {
-    BACKURL: 'http://localhost:3001' 
+    BACKURL: 'https://book-wishlist-mariangelrondan.koyeb.app' 
  }
