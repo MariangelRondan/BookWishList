@@ -10,11 +10,10 @@ import { envs } from './config';
 
 export class Server{
     public readonly app=express()
-  
-
+    
     constructor(){
-
-       
+        
+      
 
             this.app = express();
             connectDB()
@@ -35,12 +34,16 @@ export class Server{
     }
 
     middleware(){
-        this.app.use(cors({
-            origin: 'http://localhost:4200'
-          }));
+        this.app.use((req, res, next) => {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            next();
+        });
+
+        this.app.use(cors());
           
         this.app.use(express.json())
        
+
     }
    
 
